@@ -38,12 +38,15 @@ function sortCategories(criteria, array){
 function showCategoriesList(){
 
     let htmlContentToAppend = "";
+    //Declaro variable string
     for(let i = 0; i < currentCategoriesArray.length; i++){
+        //hago el for para recorrer el arreglo de categorias
         let category = currentCategoriesArray[i];
+        //le asigno a category cada elemento
 
         if (((minCount == undefined) || (minCount != undefined && parseInt(category.productCount) >= minCount)) &&
             ((maxCount == undefined) || (maxCount != undefined && parseInt(category.productCount) <= maxCount))){
-
+                //se evalua la cantidad de productos de cada categoria en funcion de un minimo y maximo de producto
             htmlContentToAppend += `
             <a href="category-info.html" class="list-group-item list-group-item-action">
                 <div class="row">
@@ -60,9 +63,13 @@ function showCategoriesList(){
                 </div>
             </a>
             `
+            //agregar el codigo que quiero que se muestre en el html
+            //muestra los productos de una lista 
+            //imagen - nombre articulo y descripcion 
         }
 
         document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
+        //lo agrego al html
     }
 }
 
@@ -115,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         //Obtengo el mínimo y máximo de los intervalos para filtrar por cantidad
         //de productos por categoría.
         minCount = document.getElementById("rangeFilterCountMin").value;
-        maxCount = document.getElementById("rangeFilterCountMax").value;
+        maxCount = document.getElementById("rangeFilterCountMax").value; // "1" cuando se aplica un parse => parse("1")=1
 
         if ((minCount != undefined) && (minCount != "") && (parseInt(minCount)) >= 0){
             minCount = parseInt(minCount);
