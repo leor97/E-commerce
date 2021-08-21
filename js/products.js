@@ -11,6 +11,7 @@ function showProductsList(list){
         let product = list[i];
         //le asigno a product cada elemento
 
+        //Contenido el cual el javascript le pasa a products.html
     htmlContentToAppend += `
     <div class="list-group-item list-group-item-action">
     <div class="row">
@@ -31,7 +32,7 @@ function showProductsList(list){
 document.getElementById("product-list-container").innerHTML = htmlContentToAppend;
  }
 }
-
+//Si el contenido del JSON llega de forma correcta se ejecuta la funcion showProductsList con el contenido del JSON
 document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(PRODUCTS_URL).then(function(resultObj){
         if (resultObj.status === "ok"){ 
