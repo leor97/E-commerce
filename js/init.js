@@ -40,8 +40,18 @@ var getJSONData = function(url){
     });
 }
 
+
+function getUsuario(){
+      let nombre = localStorage.getItem("usuario"); //se recupera el dato "usuario" definido
+      if(nombre!=undefined && nombre!=""){ //controlar que en nombre no haya nada o este vacio
+        let usuarioPerfil = document.getElementById("usuarioguardado"); //settea la variable usuarioPerfil al espacio que le corresponde al nombre de usuario en el menu
+        usuarioPerfil.innerHTML = nombre; //iguala el valor de la variable a el nombre de usuario
+    }
+}
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function(e){
+document.addEventListener("DOMContentLoaded", function(e){ //se llaman estas funciones cuando se carga la pagina
+  getUsuario(); 
 });
