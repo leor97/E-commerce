@@ -9,6 +9,10 @@
   <title>eMercado - Todo lo que busques está aquí</title>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>.checked {
+  color: orange; }
+  </style>
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -16,23 +20,126 @@
 </head>
 
 <body>
-  <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="home.html">Inicio</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-      <a class="py-2 d-none d-md-inline-block" style = "color: white" id="usuarioguardado"></a>
+  <nav class="sticky-top navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">E-Commerce</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="home.html">Inicio<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="categories.html">Categorías</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="products.html">Productos</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="sell.html">Vender</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="cart.html">Mi carrito</a>
+        </li>
+        <!--
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown
+          </a>  
+        </li>-->
+      </ul>
+    </div>
+    <div class="nav-item dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" href="#" id="usuarioguardado" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      </button>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="cart.html">Mi carrito</a>
+      </div>
+    </div>
+    <div class="mr-5" id="Usersee">
     </div>
   </nav>
   <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 19/09/2021) y Entrega 4 (Fecha de entrega: 03/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+    <div class="text-center p-4">
+      <h2>Descripción de los productos</h2>
+      <p class="lead">Encontrarás aquí toda la información del producto seleccionado.</p>
+      <p class="small alert-warning py-3"><strong>Nota: </strong>por simplicidad, cualquiera sea el producto
+        seleccionado previamente, siempre se visualizará el presente: <strong>Chevrolet Onix Joy</strong>.</p>
     </div>
+    <h3 id="productName"></h3>
+    <hr class="my-3">
+    <dl>
+      <dt>Descripción</dt>
+      <dd>
+        <p id="productDescription"></p>
+      </dd>
+
+      <dt>Costo del producto</dt>
+      <dd>
+        <p id="productCost"></p>
+      </dd>
+
+      <dt>Tipo de Moneda</dt>
+      <dd>
+        <p id="productCurrency"></p>
+      </dd>
+
+      <dt>Cantidad de vendidos</dt>
+      <dd>
+        <p id="productSoldCount"></p>
+      </dd>
+
+      <dt>Categoria</dt>
+      <dd>
+        <p id="productCategory"></p>
+      </dd>
+
+      <dt>Imágenes ilustrativas</dt>
+      <dd>
+        <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
+        </div>
+      </dd>
+    </dl>
+
+    <div>
+      <h4>Comentarios</h4>
+      <hr class="my-3">
+      <div id="product-list-container"></div>
+    </div>
+
+  
+    <form action="">
+      <div id="Comentario">
+      </div>
+      <h4>Cuentanos tu opinión!</h4>
+      <br>
+      <div>
+       <label for="nuevoComentarioTextoID">Comentario:</label >
+      </div>
+     <div>
+       
+       <textarea type="text" class="form-control mb-3" placeholder="Contanos que te parecio el producto..."
+           id="nuevoComentarioTextoID"></textarea>
+     </div>
+
+     <select class="form-select" aria-label="Default select example" id="puntuacionId">
+      <option selected disabled hidden>Puntuación</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+
+           <div class="text-center">
+               <button class="btn btn-primary mb-3" type="button" id="enviarNuevoComentario">Enviar</button>
+             </div>
+   </form>
+
+
+    <a type="button" class="btn btn-light btn-lg btn-block" href="products.html">Volver a productos</a>
+  </div>
   </div>
   <footer class="text-muted">
     <div class="container">

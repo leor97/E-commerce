@@ -49,8 +49,10 @@ function showProductsList(){
             //se evalua el costo de cada producto en funcion de un minimo y maximo, necesario para filtrar.
 
     //Contenido el cual el javascript le pasa a products.html
+    // a href redirije a la informacion de productos 
     htmlContentToAppend += `
-    <div class="list-group-item list-group-item-action">
+    <a href="product-info.html" class="list-group-item list-group-item-action"> 
+    <div class="list-group-item list-group-item-action"> 
     <div class="row">
         <div class="col-3">
             <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
