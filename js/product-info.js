@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 });
 
 
-document.addEventListener("DOMContentLoaded", function (e) {
+document.addEventListener("DOMContentLoaded", function (e) { //llama a la funcion de showComments con el JSON de comentarios 
     getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
 
