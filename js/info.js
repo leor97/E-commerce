@@ -16,7 +16,7 @@ return false;
 
 function setUsuario(){
     let nombre = document.getElementById("nombre").value; //obtiene el dato nombre 
-    localStorage.setItem("usuario",nombre); //se guarda el dato nombre a usuario 
+    localStorage.setItem("usuario",nombre); //se guarda el dato nombre a usuario
 }
 
 document.addEventListener("DOMContentLoaded", function(e){ //se llaman estas funciones cuando se carga la pagina

@@ -2,6 +2,8 @@
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 var product = {}
+let relatedProductsArray= []; //todos los productos
+
 
 function drawStars(score) {  //funcion de crear estrellas
     var checked = "";
@@ -16,6 +18,32 @@ function drawStars(score) {  //funcion de crear estrellas
     return (checked + unChecked); //retorna el resultado de ambas
 }
 
+function showRelated(){ // muestra los productos relacionados 
+    let htmlContentToAppend="";
+    for(let i = 0; i < product.relatedProducts.length; i++){ //relatedProducts es parte del JSON
+        let relatedNumber = product.relatedProducts[i]; //numero del producto relacionado
+        let related = relatedProductsArray[relatedNumber];
+        htmlContentToAppend+=`
+        <a href="product-info.html" class="list-group-item list-group-item-action"> 
+    <div class="list-group-item list-group-item-action"> 
+    <div class="row">
+        <div class="col-3">
+            <img src="` + related.imgSrc + `" alt="` + related.description + `" class="img-thumbnail">
+        </div>
+        <div class="col">
+            <div class="d-flex w-100 justify-content-between">
+                <h4 class="mb-1">`+ related.name +`</h4>
+                <small class="text-muted">` + related.soldCount + ` artículos</small>
+            </div>
+            <p class="mb-1">` + related.description + `</p>
+            <p class="text-muted">`+ related.currency + ` ` + related.cost + `</p>
+        </div>
+    </div>
+</div>
+`
+document.getElementById("related-list-container").innerHTML = htmlContentToAppend;
+    }
+}
 
 function showComments(list) {
 
@@ -60,7 +88,6 @@ function showImagesGallery(array) { //muestra las imagenes del producto
 }
 
 
-
 document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(PRODUCT_INFO_URL).then(function (resultObj) { //obtiene el JSON de informacion de productos y setea a product cada valor del JSON
         if (resultObj.status === "ok") {
@@ -80,9 +107,16 @@ document.addEventListener("DOMContentLoaded", function (e) {
             productCurrencyHTML.innerHTML = product.currency;
             productSoldCountHTML.innerHTML = product.soldCount;
             productCategoryHTML.innerHTML = product.category;
-
+            
             //Muestro las imagenes en forma de galería
             showImagesGallery(product.images);
+            //Related
+            getJSONData(PRODUCTS_URL).then(function(resultObj){
+               if (resultObj.status === "ok"){
+                   relatedProductsArray = resultObj.data;
+                   showRelated(resultObj.data,product)
+               } 
+            });
         }
     });
 });

@@ -40,13 +40,22 @@ var getJSONData = function(url){
     });
 }
 
+document.getElementById("usuarioguardado").addEventListener("click", function(e){ //Sirve para que se muestre iniciar seccion si el usuario esta vacio 
+  let nombre = localStorage.getItem("usuario"); 
+  if(nombre==undefined || nombre==""){
+    window.location.href = "./index.html"  
+  }
+});
+
 
 function getUsuario(){
       let nombre = localStorage.getItem("usuario"); //se recupera el dato "usuario" definido
       if(nombre!=undefined && nombre!=""){ //controlar que en nombre no haya nada o este vacio
         let usuarioPerfil = document.getElementById("usuarioguardado"); //settea la variable usuarioPerfil al espacio que le corresponde al nombre de usuario en el menu
         usuarioPerfil.innerHTML = nombre; //iguala el valor de la variable a el nombre de usuario
-    }
+    }else{
+      document.getElementById("usuarioguardado").innerHTML += "Iniciar sesion" //muestra iniciar sesion 
+  }
 }
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
@@ -55,3 +64,11 @@ function getUsuario(){
 document.addEventListener("DOMContentLoaded", function(e){ //se llaman estas funciones cuando se carga la pagina
   getUsuario(); 
 });
+
+document.addEventListener("DOMContentLoaded", function(e){
+  if (document.getElementById("Close")!==null){
+      document.getElementById("Close").addEventListener("click",function(e){
+      localStorage.clear("usuarioguardado");
+  })
+ }
+}); 
