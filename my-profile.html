@@ -61,20 +61,30 @@
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         <a class="dropdown-item" href="cart.html">Mi carrito</a>
         <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
-        <a class="dropdown-item" href="index.html">Cerrar sesión</a>
+        <a class="dropdown-item" onclick="exit()">Cerrar sesión</a>
       </div>
     </div>
     <div class="mr-5" id="Usersee">
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 6 (Fecha de entrega: 31/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
+  <div class="container p-5" id="profileid">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h4 class="text-right">Ajustes del Perfil</h4>
   </div>
+  <div class="row mt-2">
+      <div class="col-md-6"><label class="labels">Primer Nombre</label><input type="text" id="pnompro" class="form-control" placeholder="Primer Nombre" value=""></div>
+      <div class="col-md-6"><label class="labels">Segundo Nombre</label><input type="text" id="snompro" class="form-control" placeholder="Segundo Nombre" value=""></div>
+      <div class="col-md-6"><br><label class="labels">Primer Apellido</label><input type="text" id="papepro" class="form-control" value="" placeholder="Primer Apellido"></div>
+      <div class="col-md-6"><br><label class="labels">Segundo Apellido</label><input type="text" id="sapepro" class="form-control" value="" placeholder="Segundo Apellido"></div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-md-12"><label class="labels">Edad</label><input type="text" id="edadpro" class="form-control" placeholder="Edad" value=""></div>
+    <div class="col-md-12"><br><label class="labels">E-mail</label><input type="text" id="mailpro" class="form-control" placeholder="E-mail" value=""></div>
+    <div class="col-md-12"><br><label class="labels">Telefono de Contacto</label><input type="text" id="telpro" class="form-control" placeholder="Telefono de Contacto" value=""></div>
+</div>
+<div class="mt-5 text-center"><button class="btn btn-primary profile-button" id="save" type="button">Guardar Perfil</button></div>
+  </div>
+
   <footer class="text-muted bg-light">
     <div class="container">
       <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>

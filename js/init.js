@@ -47,7 +47,11 @@ document.getElementById("usuarioguardado").addEventListener("click", function(e)
   }
 });
 
-
+function exit(){
+localStorage.clear();
+    window.location.href = "./index.html"
+    
+}
 function getUsuario(){
       let nombre = localStorage.getItem("usuario"); //se recupera el dato "usuario" definido
       if(nombre!=undefined && nombre!=""){ //controlar que en nombre no haya nada o este vacio
@@ -66,9 +70,9 @@ document.addEventListener("DOMContentLoaded", function(e){ //se llaman estas fun
 });
 
 document.addEventListener("DOMContentLoaded", function(e){
-  if (document.getElementById("Close")!==null){
+  /*if (document.getElementById("Close")!==null){
       document.getElementById("Close").addEventListener("click",function(e){
-      localStorage.clear("usuarioguardado");
+      localStorage.clear();
   })
- }
+ }*/
 }); 
